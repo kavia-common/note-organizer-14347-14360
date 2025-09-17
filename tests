@@ -1,0 +1,5 @@
+#!/usr/bin/env sh
+# Alias to 'test' entrypoint for CI systems expecting 'tests'.
+set -eu
+DIR="$(CDPATH= cd -- "$(dirname -- "$0")" && pwd)"
+exec sh "$DIR/test"

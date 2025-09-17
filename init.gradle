@@ -1,0 +1,10 @@
+allprojects {
+    gradle.settingsEvaluated {
+        // Ensure the Android app module path is correctly mapped
+        def appProject = rootProject.findProject(':app')
+        if (appProject == null) {
+            include ':app'
+            project(':app').projectDir = new File(rootDir, 'notes_frontend/android/app')
+        }
+    }
+}

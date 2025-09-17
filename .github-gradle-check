@@ -1,0 +1,6 @@
+#!/usr/bin/env sh
+# Helper script for CI environments that auto-detect scripts with GitHub-like names.
+# Runs gradle :app:check through the prebuild flow.
+
+set -e
+sh ./gradle-preflight.sh :app:check

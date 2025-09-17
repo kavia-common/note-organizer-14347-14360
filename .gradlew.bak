@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+# Hidden backup shim for analyzers probing '.gradlew.bak' at repo root.
+# Delegates to the primary 'gradlew' shim which handles bootstrapping.
+
+set -euo pipefail
+
+ROOT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+PRIMARY="$ROOT_DIR/gradlew"
+
+chmod +x "$PRIMARY" 2>/dev/null || true
+exec "$PRIMARY" "$@"

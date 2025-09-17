@@ -1,0 +1,15 @@
+Preferred CI entrypoint:
+  bash note-organizer-14347-14360/ci-gradle-check.sh
+
+If your analyzer requires a single file at repo root, try:
+  ./gradlew_check
+  ./check.sh
+  ./ci
+  ./run.sh
+
+Alternatives (ensure permissions, then run wrapper):
+  sh note-organizer-14347-14360/set-exec-gradle.sh
+  ./gradlew check
+
+No-Gradle option (Expo web export):
+  bash note-organizer-14347-14360/build-web.sh

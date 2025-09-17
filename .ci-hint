@@ -1,0 +1,2 @@
+android-gradle-exec=.ci-gradle-exec
+android-prebuild=make prebuild-android

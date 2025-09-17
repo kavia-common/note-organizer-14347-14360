@@ -1,0 +1,5 @@
+#!/usr/bin/env sh
+# Alias shim. Delegates to hardened ./gradlew which auto-fetches the wrapper jar if needed.
+set -eu
+DIR="$(CDPATH= cd -- "$(dirname -- "$0")" && pwd)"
+exec sh "$DIR/gradlew" "$@"

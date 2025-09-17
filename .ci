@@ -1,0 +1,6 @@
+#!/usr/bin/env sh
+# Generic CI script: ensure permissions and run Android check through bootstrapper.
+set -eu
+DIR="$(CDPATH= cd -- "$(dirname -- "$0")" && pwd)"
+sh "$DIR/ensure-exec.sh" || true
+sh "$DIR/ci-gradle-check.sh"

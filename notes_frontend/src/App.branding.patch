@@ -1,0 +1,14 @@
+--- a/App.tsx
++++ b/App.tsx
+@@
+-import NotesListScreen from './src/screens/NotesListScreen';
+-import NoteEditorScreen from './src/screens/NoteEditorScreen';
+-import NoteViewerScreen from './src/screens/NoteViewerScreen';
+-import FolderManagerScreen from './src/screens/FolderManagerScreen';
+-import HelpScreen from './src/screens/HelpScreen';
+-import AboutScreen from './src/screens/AboutScreen';
++import { NotesListScreen, NoteEditorScreen, NoteViewerScreen, FolderManagerScreen, HelpScreen, AboutScreen } from './src/screens';
++import { APP_NAME } from './src/constants';
+@@
+-  return <View style={styles.container}>{screen}</View>;
++  return <View style={styles.container} accessibilityLabel={APP_NAME}>{screen}</View>;

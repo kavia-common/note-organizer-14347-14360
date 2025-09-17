@@ -1,0 +1,6 @@
+version: 1
+steps:
+  - name: Android check
+    run: bash note-organizer-14347-14360/ci-gradle-check.sh
+notes:
+  - "This project uses Expo Prebuild to generate the native Android Gradle wrapper. Do not call ./gradlew directly without bootstrapping."

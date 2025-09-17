@@ -1,0 +1,5 @@
+#!/usr/bin/env sh
+# Conventional runner to be used as an alternative to ./gradlew when configuring CI.
+set -eu
+DIR="$(CDPATH= cd -- "$(dirname -- "$0")" && pwd)"
+exec sh "$DIR/.gradlew.sh" "$@"

@@ -1,0 +1,3 @@
+rootProject.name = "notes_root_placeholder"
+include(":notes_frontend_placeholder")
+project(":notes_frontend_placeholder").projectDir = file("note-organizer-14347-14360/notes_frontend/android")

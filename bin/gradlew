@@ -1,0 +1,13 @@
+#!/usr/bin/env sh
+# CI/analyzer alias: bin/gradlew
+set -eu
+ROOT_DIR="$(CDPATH= cd -- "$(dirname -- "$0")"/.. && pwd)"
+cd "$ROOT_DIR"
+
+# Ensure root-level gradlew exists (create minimal wrapper if missing)
+if [ ! -f "./gradlew" ]; then
+  printf '%s\n' '#!/usr/bin/env sh' 'set -eu' 'exec sh ./gradle.sh "$@"' > ./gradlew
+  chmod +x ./gradlew
+fi
+
+exec ./gradlew "$@"

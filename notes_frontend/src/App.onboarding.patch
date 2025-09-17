@@ -1,0 +1,27 @@
+--- a/App.tsx
++++ b/App.tsx
+@@
+-import React, { useMemo, useState } from 'react';
++import React, { useEffect, useMemo, useState } from 'react';
+@@
+ import { Note } from './src/types';
++import OnboardingScreen from './src/screens/OnboardingScreen';
++import { isOnboardingComplete, setOnboardingComplete } from './src/services/onboarding';
+@@
+ function Router() {
+   const { loading } = useNotes();
+   const [route, setRoute] = useState<Route>({ name: 'home' });
++  const [showOnboarding, setShowOnboarding] = useState<boolean>(false);
++
++  useEffect(() => {
++    (async () => {
++      const done = await isOnboardingComplete();
++      setShowOnboarding(!done);
++    })();
++  }, []);
+@@
+-    switch (route.name) {
++    if (showOnboarding) {
++      return <OnboardingScreen onContinue={async () => { await setOnboardingComplete(); setShowOnboarding(false); }} />;
++    }
++    switch (route.name) {

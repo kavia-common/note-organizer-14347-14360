@@ -1,0 +1,8 @@
+This repository uses Expo Prebuild to generate the native Android project.
+The actual Gradle wrapper is generated under notes_frontend/android/gradlew.
+
+To ensure ./gradlew exists at repo root for CI, run:
+  sh ./create-gradlew.sh
+
+Then invoke:
+  ./gradlew :app:assembleDebug

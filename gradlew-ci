@@ -1,0 +1,9 @@
+#!/usr/bin/env sh
+set -eu
+DIR="$(CDPATH= cd -- "$(dirname -- "$0")" && pwd)"
+cd "$DIR"
+# Ensure shims are executable
+chmod +x ./gradlew 2>/dev/null || true
+chmod +x ./ci-gradle-runner.sh 2>/dev/null || true
+# Delegate to the main shim
+exec ./gradlew "$@"

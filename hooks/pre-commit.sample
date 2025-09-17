@@ -1,0 +1,11 @@
+#!/usr/bin/env sh
+# Sample pre-commit to prevent accidental native Gradle invocation from repo root.
+
+set -e
+
+if [ -x "./gradlew" ] && [ ! -d "./notes_frontend/android" ]; then
+  echo "[pre-commit] Warning: Native Android project not detected."
+  echo "Use: sh ./ci-mobile-analyze-or-fallback.sh"
+fi
+
+exit 0

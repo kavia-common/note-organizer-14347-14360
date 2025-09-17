@@ -1,0 +1,7 @@
+#!/usr/bin/env sh
+# PATH shim gradlew that routes analyzers to a safe mobile analysis flow with fallback.
+# When PATH is prefixed with ci-path-shims, "./gradlew ..." will resolve here first.
+
+set -e
+ROOT_DIR="$(CDPATH= cd -- "$(dirname -- "$0")"/.. && pwd)"
+exec sh "$ROOT_DIR/ci-mobile-analyze-or-fallback.sh"

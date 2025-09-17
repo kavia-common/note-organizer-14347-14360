@@ -1,0 +1,9 @@
+--- a/src/screens/NoteViewerScreen.tsx
++++ b/src/screens/NoteViewerScreen.tsx
+@@
+-import { copyToClipboard } from '../utils/clipboard';
++import { copyToClipboard } from '../utils/clipboard';
++import { formatDateTime } from '../utils/format';
+@@
+-        <Text style={styles.meta}>Updated {new Date(note.updatedAt).toLocaleString()}</Text>
++        <Text style={styles.meta}>Updated {formatDateTime(note.updatedAt)}</Text>

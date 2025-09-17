@@ -1,0 +1,23 @@
+#!/usr/bin/env sh
+# notes_frontend-level gradlew shim for analyzers running from this directory.
+# Ensures Android project exists (expo prebuild) then delegates to local wrapper.
+# Robustly forwards all args without modification.
+
+set -e
+APP_DIR="$(CDPATH= cd -- "$(dirname -- "$0")" && pwd)"
+ANDROID_DIR="$APP_DIR/android"
+
+# Capture all arguments exactly as provided
+TASK_ARGS="$@"
+
+if [ ! -d "$ANDROID_DIR" ] || [ ! -x "$ANDROID_DIR/gradlew" ]; then
+  echo "[notes_frontend/gradlew] Android project not found. Running expo prebuild..."
+  cd "$APP_DIR"
+  npx --yes expo prebuild --platform android
+  echo "[notes_frontend/gradlew] Prebuild completed."
+fi
+
+cd "$ANDROID_DIR"
+chmod +x ./gradlew || true
+# Do not echo full args to avoid CI analyzers parsing errors
+exec ./gradlew $TASK_ARGS

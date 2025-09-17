@@ -1,0 +1,7 @@
+CI/Analyzer detected: './gradlew' missing at repository root.
+
+This project uses Expo Prebuild to generate the Android Gradle wrapper
+under: note-organizer-14347-14360/notes_frontend/android
+
+Run this single step before any Gradle command:
+  bash note-organizer-14347-14360/ci-bootstrap-and-check.sh

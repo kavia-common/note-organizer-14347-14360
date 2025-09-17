@@ -1,0 +1,6 @@
+Use one of these commands for native builds:
+
+1) sh ./gradle-preflight.sh :app:assembleDebug
+2) sh ./run-gradle-direct.sh :app:assembleDebug
+3) sh notes_frontend/android/run-gradle-here.sh :app:assembleDebug
+4) npm run ensure:gradlew && ./gradlew :app:assembleDebug

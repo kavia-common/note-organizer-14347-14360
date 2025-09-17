@@ -1,0 +1,9 @@
+# Preserve executable (x) bit for shell scripts and shims
+*.sh text eol=lf
+gradlew text eol=lf
+gradlew.sh text eol=lf
+gradlew.wrapper text eol=lf
+ci-gradle-check.sh text eol=lf
+ci-gradle-runner.sh text eol=lf
+set-exec-shims.sh text eol=lf
+print-gradle-context.sh text eol=lf

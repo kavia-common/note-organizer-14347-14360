@@ -1,0 +1,21 @@
+#!/usr/bin/env sh
+# CI wrapper: prefer calling this instead of ./gradlew.
+# It ensures expo prebuild runs, then delegates tasks to notes_frontend/android/gradlew.
+
+set -e
+ROOT_DIR="$(CDPATH= cd -- "$(dirname -- "$0")" && pwd)"
+APP_DIR="$ROOT_DIR/notes_frontend"
+ANDROID_DIR="$APP_DIR/android"
+TASK_ARGS="$@"
+
+if [ ! -d "$ANDROID_DIR" ] || [ ! -x "$ANDROID_DIR/gradlew" ]; then
+  echo "[gradlew-wrapper] Android project not found. Running expo prebuild..."
+  cd "$APP_DIR"
+  npx --yes expo prebuild --platform android
+  echo "[gradlew-wrapper] Prebuild completed."
+fi
+
+cd "$ANDROID_DIR"
+chmod +x ./gradlew || true
+echo "[gradlew-wrapper] Delegating to notes_frontend/android/gradlew $TASK_ARGS"
+exec ./gradlew $TASK_ARGS

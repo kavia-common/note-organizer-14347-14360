@@ -1,0 +1,3 @@
+Ocean Notes (notes_frontend)
+This repository includes an Expo (React Native) app and helper scripts to support CI/native builds.
+Gradle wrapper generation is deferred to Expo Prebuild. Root-level shim files are provided for CI.

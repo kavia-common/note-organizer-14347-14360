@@ -1,0 +1,7 @@
+#!/usr/bin/env sh
+# Analyzer-friendly replacement for "./gradlew check"
+# Delegates to the arg normalizer which uses preflight (expo prebuild) + Gradle.
+
+set -e
+ROOT_DIR="$(CDPATH= cd -- "$(dirname -- "$0")" && pwd)"
+exec sh "$ROOT_DIR/gradlew-defaults.sh" check

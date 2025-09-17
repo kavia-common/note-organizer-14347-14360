@@ -1,0 +1,29 @@
+#!/usr/bin/env bash
+# Auto-bootstrap Gradle wrapper for analyzers/pipelines that can alias this file as './gradlew'.
+# Generates the Android wrapper via Expo Prebuild (if possible) and forwards requested tasks.
+
+set -euo pipefail
+
+ROOT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+APP_DIR="$ROOT_DIR/notes_frontend"
+WRAPPER="$APP_DIR/android/gradlew"
+
+# Ensure exec bits on shims
+[ -f "$ROOT_DIR/set-exec-bits.sh" ] && bash "$ROOT_DIR/set-exec-bits.sh" || true
+
+# Attempt to generate wrapper
+[ -f "$ROOT_DIR/prepare-android-wrapper.sh" ] && bash "$ROOT_DIR/prepare-android-wrapper.sh" || true
+
+# If wrapper exists, delegate to it; else, try our proxy
+if [ -f "$WRAPPER" ]; then
+  chmod +x "$WRAPPER" || true
+  cd "$APP_DIR/android"
+  exec "$WRAPPER" "$@"
+fi
+
+if [ -f "$ROOT_DIR/run-gradle.sh" ]; then
+  exec bash "$ROOT_DIR/run-gradle.sh" "$@"
+fi
+
+echo "[gradlew.auto] Android wrapper not found. Run: bash note-organizer-14347-14360/build-android.sh"
+exit 127

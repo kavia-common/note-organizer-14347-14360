@@ -1,0 +1,7 @@
+{
+  "androidBuild": {
+    "entry": "bash ./gradlew-root.sh",
+    "prebuild": "make prebuild-android",
+    "notes": "Uses Expo prebuild to generate notes_frontend/android/gradlew and then forwards to it."
+  }
+}

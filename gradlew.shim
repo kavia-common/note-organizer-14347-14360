@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+# Redundant shim in case the environment fails to see ./gradlew.
+set -euo pipefail
+DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+exec "${DIR}/gradlew.sh" "$@"

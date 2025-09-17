@@ -1,0 +1,9 @@
+--- a/src/components/NoteCard.tsx
++++ b/src/components/NoteCard.tsx
+@@
+-import { Note } from '../types';
++import { Note } from '../types';
++import { formatDateTime } from '../utils/format';
+@@
+-      <Text style={styles.meta}>{new Date(note.updatedAt).toLocaleString()}</Text>
++      <Text style={styles.meta}>{formatDateTime(note.updatedAt)}</Text>

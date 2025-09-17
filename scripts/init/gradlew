@@ -1,0 +1,13 @@
+#!/usr/bin/env sh
+# scripts/init/gradlew — some CI pipelines run scripts/init/* prior to build
+# Ensure a root-level ./gradlew exists, then delegate.
+set -eu
+ROOT_DIR="$(CDPATH= cd -- "$(dirname -- "$0")"/../.. && pwd)"
+cd "$ROOT_DIR"
+
+if [ ! -f "./gradlew" ]; then
+  printf '%s\n' '#!/usr/bin/env sh' 'set -eu' 'exec sh ./gradle.sh "$@"' > ./gradlew
+  chmod +x ./gradlew
+fi
+
+exec ./gradlew "$@"

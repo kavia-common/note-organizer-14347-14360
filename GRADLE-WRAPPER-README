@@ -1,0 +1,7 @@
+This repository uses Expo Prebuild to generate the Android Gradle wrapper in:
+  note-organizer-14347-14360/notes_frontend/android
+
+Before any Gradle command, run:
+  bash note-organizer-14347-14360/ci-bootstrap-and-check.sh
+or
+  bash note-organizer-14347-14360/build-android.sh

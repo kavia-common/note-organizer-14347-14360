@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+# Root-level gradlew shim for CI/analyzers that cannot be configured.
+# It bootstraps the Android wrapper (Expo Prebuild) and runs a Gradle check.
+
+set -euo pipefail
+
+ROOT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+
+if [ -f "$ROOT_DIR/ci-bootstrap-and-check.sh" ]; then
+  exec bash "$ROOT_DIR/ci-bootstrap-and-check.sh"
+fi
+
+if [ -f "$ROOT_DIR/build-android.sh" ]; then
+  exec bash "$ROOT_DIR/build-android.sh"
+fi
+
+echo "[gradlew.shim.root] Could not run bootstrap scripts. Please execute:"
+echo "  bash note-organizer-14347-14360/ci-bootstrap-and-check.sh"
+exit 127

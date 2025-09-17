@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+# Helper for CI tools: explains how to bootstrap the Android Gradle wrapper and runs the one-step fix.
+
+set -euo pipefail
+
+ROOT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+
+echo "[gradlew.help] This repository uses Expo Prebuild to generate the Android Gradle wrapper under notes_frontend/android."
+echo "[gradlew.help] If your CI or analyzer is calling ./gradlew at the repository root, run the one-step fixer below."
+
+if [ -f "$ROOT_DIR/ci-bootstrap-and-check.sh" ]; then
+  echo "[gradlew.help] Running: bash note-organizer-14347-14360/ci-bootstrap-and-check.sh"
+  exec bash "$ROOT_DIR/ci-bootstrap-and-check.sh"
+else
+  echo "[gradlew.help] Missing script: ci-bootstrap-and-check.sh"
+  echo "[gradlew.help] Please run: bash note-organizer-14347-14360/build-android.sh"
+  exit 127
+fi
