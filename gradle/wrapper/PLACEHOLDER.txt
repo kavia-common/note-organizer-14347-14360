@@ -1,5 +1,0 @@
-This directory holds the Gradle Wrapper artifacts:
-- gradle-wrapper.properties (present)
-- gradle-wrapper.jar (downloaded automatically by ./gradlew based on the properties file)
-
-If your CI environment blocks downloads, pre-populate gradle-wrapper.jar here or allow network access.

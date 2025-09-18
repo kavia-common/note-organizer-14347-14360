@@ -1,6 +1,0 @@
-#!/usr/bin/env sh
-# Direct substitute used by some analyzers instead of ./gradlew
-set -eu
-DIR="$(CDPATH= cd -- "$(dirname -- "$0")" && pwd)"
-sh "$DIR/set-exec-gradle.sh" || true
-exec sh "$DIR/gradlew" check

@@ -1,4 +1,0 @@
-#!/bin/sh
-# POSIX-compatible gradle wrapper shim for strict shells.
-DIR="$(CDPATH= cd -- "$(dirname -- "$0")" && pwd)"
-exec "$DIR/gradlew.sh" "$@"

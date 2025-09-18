@@ -1,7 +1,0 @@
-{
-  "android": {
-    "buildCommand": "bash ./build-android.sh",
-    "prebuildCommand": "make prebuild-android",
-    "notes": "This project is Expo-managed. The Gradle wrapper is generated under notes_frontend/android by Expo prebuild."
-  }
-}

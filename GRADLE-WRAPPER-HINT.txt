@@ -1,8 +1,0 @@
-If your pipeline fails with:
-  ./gradlew: No such file or directory
-
-Run one of:
-- sh ./pre-ci-ensure-gradlew.sh && ./gradlew :app:assembleDebug
-- sh ./ci-ensure-and-run-gradle.sh :app:assembleDebug
-- npm run ensure:gradlew && ./gradlew :app:assembleDebug
-- sh ./run-gradle-direct.sh :app:assembleDebug

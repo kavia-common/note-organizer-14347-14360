@@ -1,5 +1,0 @@
-#!/usr/bin/env sh
-# Alias that forces executing the hardened gradle wrapper via sh.
-set -eu
-DIR="$(CDPATH= cd -- "$(dirname -- "$0")" && pwd)"
-exec sh "$DIR/gradlew" "$@"

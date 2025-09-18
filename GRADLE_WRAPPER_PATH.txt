@@ -1,5 +1,0 @@
-Canonical Gradle wrapper path:
-notes_frontend/android/gradlew
-
-If not present, run:
-bash ./verify-gradle-wrapper.sh

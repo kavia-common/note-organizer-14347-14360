@@ -1,5 +1,0 @@
-#!/usr/bin/env bash
-# Redirect ./gradlew to gradlew-root.sh in case the main shim isn't recognized.
-set -euo pipefail
-DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-exec "${DIR}/gradlew-root.sh" "$@"

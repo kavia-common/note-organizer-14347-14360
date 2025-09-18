@@ -1,7 +1,0 @@
-# Preferred CI entrypoint for mobile analysis:
-# Use one of the following (top choice first):
-sh ./ci-mobile-analyze-or-fallback.sh
-# or
-sh ./gradle-preflight.sh :app:check
-# or
-sh ./analyze-mobile-web-fallback.sh

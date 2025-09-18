@@ -1,6 +1,0 @@
-# Ignore shellcheck for repo root gradle shims which are minimal by design
-gradlew
-gradlew.sh
-gradlew.shim
-run-android-gradle.sh
-ci-run-gradle.sh

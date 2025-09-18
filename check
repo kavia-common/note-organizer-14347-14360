@@ -1,6 +1,0 @@
-#!/usr/bin/env bash
-# Convenience entrypoint for analyzers that invoke ./check.
-set -euo pipefail
-ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-bash "${ROOT}/ensure-exec.sh"
-exec "${ROOT}/gradlew" check

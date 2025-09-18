@@ -1,2 +1,0 @@
-# Analyzer Mobile Entrypoint (auto-discovery)
-sh ./ci-mobile-analyze-or-fallback.sh
